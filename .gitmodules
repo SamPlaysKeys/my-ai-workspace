@@ -1,0 +1,3 @@
+[submodule "external/code-for-msps"]
+	path = external/code-for-msps
+	url = git@github.com:SamPlaysKeys/Code-for-MSPs.git

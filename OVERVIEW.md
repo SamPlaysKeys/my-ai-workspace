@@ -250,8 +250,11 @@ ai/
 ├── rhacm-examples/        # RHACM multi-cluster management
 ├── coreos-examples/       # CoreOS/Ignition configurations
 ├── scripts/               # AI-created utility scripts
+│   ├── ansible/           # Ansible utilities
 │   └── argocd/            # ArgoCD utilities
 ├── tools/                 # Standalone utilities
+├── external/              # Git submodules (external repos)
+│   └── code-for-msps/     # PowerShell scripts for MSPs
 ├── prompts/               # Saved prompts for reuse
 ├── analyses/              # Research and analysis outputs
 ├── labs/                  # Experimental work
@@ -262,6 +265,16 @@ ai/
     ├── skills/            # Deep methodology guides
     └── agents/            # Specialized auditors
 ```
+
+### External Repositories
+
+The `external/` directory contains git submodules. After cloning, initialize them:
+
+```bash
+git submodule update --init --recursive
+```
+
+See `external/README.md` for usage details.
 
 ## Example Sessions
 

@@ -43,6 +43,7 @@ This disclosure is provided in the interest of transparency and to help you make
 - **CoreOS/Ignition** - System configuration examples including virtual media ejection and automated setup
 - **Scripts** - Utility scripts organized by technology domain (`scripts/argocd/`, etc.)
 - **Tools** - Standalone utilities like the ISO HTTPS server (`tools/`)
+- **External** - Git submodules including PowerShell scripts for MSPs (`external/`)
 
 **Important Notes:**
 
@@ -54,10 +55,11 @@ This disclosure is provided in the interest of transparency and to help you make
 **Getting Started:**
 
 1. **Clone the repository**: `git clone <repo-url>`
-2. **Read the overview**: See `OVERVIEW.md` for interaction patterns and effective usage
-3. **Explore examples**: Browse `ansible-examples/`, `ocp-troubleshooting/`, etc.
-4. **Copy and customize**: Use `.example.yml` templates found in individual example directories, update for your infrastructure
-5. **Keep secrets safe**: Real inventory files and credentials should be in `.gitignore`
+2. **Initialize submodules**: `git submodule update --init --recursive`
+3. **Read the overview**: See `OVERVIEW.md` for interaction patterns and effective usage
+4. **Explore examples**: Browse `ansible-examples/`, `ocp-troubleshooting/`, etc.
+5. **Copy and customize**: Use `.example.yml` templates found in individual example directories, update for your infrastructure
+6. **Keep secrets safe**: Real inventory files and credentials should be in `.gitignore`
 
 **Meta-Development System:**
 
