@@ -9,8 +9,9 @@ scripts/
 ├── argocd/           # ArgoCD utilities
 │   ├── *.sh          # Production scripts
 │   └── tests/        # Test harnesses and fixtures
+├── ansible/          # Ansible utilities
+│   └── *.py          # Python scripts for Ansible workflows
 ├── openshift/        # OpenShift utilities (future)
-├── ansible/          # Ansible utilities (future)
 └── README.md
 ```
 
@@ -30,6 +31,9 @@ scripts/
 - Scripts should include usage comments at the top
 
 ## Current Contents
+
+### ansible/
+- `dedupe-requirements.py` - Remove duplicate entries from Ansible requirements.yml files
 
 ### argocd/
 - `app-of-apps-revisions.sh` - Extract targetRevision from nested ArgoCD app-of-apps hierarchies
