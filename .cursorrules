@@ -99,6 +99,16 @@ CoreOS Butane configurations:
 - Keep commits focused on single changes
 - Update documentation with code changes
 
+### Code Style Preferences
+- Prioritize simplicity and readability over defensive programming
+- Write straightforward code that follows best practices
+- Only include error handling when:
+  - The operation has known failure modes that need specific handling
+  - The context explicitly requires robustness (production scripts, user-facing tools)
+  - Specifically requested by the user
+- Avoid boilerplate try/catch blocks, excessive validation, or speculative error handling
+- Let failures surface naturally rather than masking them with generic handlers
+
 ## AI Disclosure
 Per project standards, all AI-assisted work includes disclosure notices in relevant files.
 
