@@ -4,7 +4,7 @@
 
 set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
-cd "$SCRIPT_DIR"
+FIXTURES_DIR="${SCRIPT_DIR}/fixtures"
 
 _parse_app_revisions() {
   local yaml="${1:-}"
@@ -15,7 +15,7 @@ _parse_app_revisions() {
 }
 
 # Level 2 from "root"
-ROOT_APPS=$(cat test-root-apps.yaml)
+ROOT_APPS=$(cat "${FIXTURES_DIR}/root-apps.yaml")
 declare -A APP_REVISION_MAP
 while IFS= read -r line; do
   app="${line%% *}"
@@ -27,8 +27,8 @@ done < <( _parse_app_revisions "$ROOT_APPS" )
 declare -A FINAL_APP_REVISION_MAP
 for level2_app in "${!APP_REVISION_MAP[@]}"; do
   level2_rev="${APP_REVISION_MAP[$level2_app]}"
-  # Simulate argocd app manifests: use local file if it exists
-  child_file="test-level3-${level2_app}.yaml"
+  # Simulate argocd app manifests: use local fixture if it exists
+  child_file="${FIXTURES_DIR}/level3-${level2_app}.yaml"
   if [[ -f "$child_file" ]]; then
     child_yaml=$(cat "$child_file")
   else

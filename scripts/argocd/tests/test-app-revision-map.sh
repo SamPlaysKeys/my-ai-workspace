@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -e
-ROOT_APPS=$(cat test-root-apps.yaml)
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+FIXTURES_DIR="${SCRIPT_DIR}/fixtures"
+ROOT_APPS=$(cat "${FIXTURES_DIR}/root-apps.yaml")
 declare -A APP_REVISION_MAP
 
 # Option A: yq eval (not eval-all) + grep to strip ---

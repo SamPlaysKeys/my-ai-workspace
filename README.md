@@ -41,20 +41,23 @@ This disclosure is provided in the interest of transparency and to help you make
 - **OpenShift/Kubernetes** - 7 detailed troubleshooting guides for bare-metal clusters, CSR management, networking issues, and cluster recovery
 - **ArgoCD/GitOps** - Application deployment patterns, multi-cluster configurations, and app-of-apps patterns
 - **CoreOS/Ignition** - System configuration examples including virtual media ejection and automated setup
+- **Scripts** - Utility scripts organized by technology domain (`scripts/argocd/`, etc.)
+- **Tools** - Standalone utilities like the ISO HTTPS server (`tools/`)
 
 **Important Notes:**
 
 - ✅ **All credentials are examples** - Passwords like "calvin", "password", "changeme" are placeholders for demonstration
 - ✅ **All IP addresses are examples** - Uses RFC1918 private ranges (192.168.x.x, 10.x.x.x, 172.16.x.x)
 - ✅ **All hostnames are generic** - master-0, server1, bastion.example.com, etc.
-- 📝 **Adapt to your environment** - Copy `.example.yml` files, update with your credentials, never commit real secrets
+- 📝 **Adapt to your environment** - Copy `.example.yml` files from example directories, update with your credentials, never commit real secrets
 
 **Getting Started:**
 
 1. **Clone the repository**: `git clone <repo-url>`
-2. **Explore examples**: Browse `ansible-examples/`, `ocp-troubleshooting/`, etc.
-3. **Copy and customize**: Use `.example.yml` templates, update for your infrastructure
-4. **Keep secrets safe**: Real inventory files and credentials should be in `.gitignore`
+2. **Read the overview**: See `OVERVIEW.md` for interaction patterns and effective usage
+3. **Explore examples**: Browse `ansible-examples/`, `ocp-troubleshooting/`, etc.
+4. **Copy and customize**: Use `.example.yml` templates found in individual example directories, update for your infrastructure
+5. **Keep secrets safe**: Real inventory files and credentials should be in `.gitignore`
 
 **Meta-Development System:**
 
