@@ -1,4 +1,4 @@
-# Gemini Workspace - DevOps Examples and Troubleshooting
+# AI Workspace - DevOps Examples and Troubleshooting
 
 This workspace contains practical DevOps examples, configurations, and troubleshooting guides for enterprise Kubernetes and OpenShift environments.
 
@@ -179,7 +179,7 @@ Load skills for deep methodologies:
 - Audit: `/audit-skill`, `/audit-slash-command`, `/audit-subagent`
 - Frameworks: `/consider:first-principles`, `/consider:5-whys`, etc. (12 total)
 
-**Skills (10 total):**
+**Skills (11 total):**
 - `create-plans/` - Project planning
 - `debug-like-expert/` - Systematic debugging
 - `create-agent-skills/` - Documentation creation
@@ -189,7 +189,8 @@ Load skills for deep methodologies:
 - `create-hooks/` - Event automation
 - `create-mcp-servers/` - MCP development
 - `setup-ralph/` - Ralph autonomous loop
-- `expertise/` - Domain knowledge (iOS, macOS, n8n)
+- `build-github-actions/` - GitHub Actions workflows (CI/CD, Ansible, ArgoCD, RHACM)
+- `expertise/` - Domain knowledge (iOS, macOS)
 
 **Agents (3 total):**
 - `skill-auditor.md` - Evaluate procedures
