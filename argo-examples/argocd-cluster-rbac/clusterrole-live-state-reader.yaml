@@ -1,0 +1,71 @@
+# ArgoCD Cluster-Wide Live State Reader RBAC
+#
+# This ClusterRole and ClusterRoleBindings grant ArgoCD application controllers
+# read access to all cluster resources, enabling live state comparison.
+#
+# Alternative to setting ARGOCD_CLUSTER_CONFIG_NAMESPACES on the OpenShift GitOps
+# operator subscription. Use this approach when:
+#   - You need fine-grained control over RBAC
+#   - You want to manage RBAC via GitOps
+#   - You're using a non-operator ArgoCD installation
+#
+# Usage:
+#   oc apply -f clusterrole-live-state-reader.yaml
+#
+# Verify:
+#   oc get clusterrole argocd-application-controller-cluster-role
+#   oc get clusterrolebindings | grep argocd-application-controller
+#
+# Note: Update the ServiceAccount names to match your ArgoCD instance names.
+#       Check with: oc get sa -n <namespace> | grep application-controller
+---
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRole
+metadata:
+  name: argocd-application-controller-cluster-role
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/part-of: argocd
+rules:
+# Read access to all resources for live state comparison
+- apiGroups: ["*"]
+  resources: ["*"]
+  verbs: ["get", "list", "watch"]
+# Event creation for status reporting
+- apiGroups: [""]
+  resources: ["events"]
+  verbs: ["create", "patch"]
+---
+# ClusterRoleBinding for openshift-gitops namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-application-controller-openshift-gitops
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/part-of: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: argocd-application-controller-cluster-role
+subjects:
+- kind: ServiceAccount
+  name: openshift-gitops-argocd-application-controller
+  namespace: openshift-gitops
+---
+# ClusterRoleBinding for argocd-diff-preview namespace
+apiVersion: rbac.authorization.k8s.io/v1
+kind: ClusterRoleBinding
+metadata:
+  name: argocd-application-controller-argocd-diff-preview
+  labels:
+    app.kubernetes.io/component: application-controller
+    app.kubernetes.io/part-of: argocd
+roleRef:
+  apiGroup: rbac.authorization.k8s.io
+  kind: ClusterRole
+  name: argocd-application-controller-cluster-role
+subjects:
+- kind: ServiceAccount
+  name: argocd-diff-preview-argocd-application-controller
+  namespace: argocd-diff-preview
